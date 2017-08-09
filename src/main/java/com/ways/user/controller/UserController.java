@@ -60,11 +60,11 @@ public class UserController {
 	public JSONArray getUserRoleResources(){
 		String jsonArray =
 		"[{\"id\":1,\"text\":\"Folder1\",\"iconCls\":\"icon-save\",\"children\":[{"+
-			"\"text\":\"File1\",\"checked\":true,\"url\":\"page/test.html\"},{\"text\":\"Books\","+
-			"\"state\":\"open\",\"attributes\":{\"url\":\"page/test.html\","+
+			"\"text\":\"File1\",\"checked\":true,\"url\":\"/page/test.html\"},{\"text\":\"Books\","+
+			"\"state\":\"open\",\"attributes\":{\"url\":\"/page/test.html\","+
 			"\"price\":100},\"children\":[{\"text\":\"PhotoShop\",\"checked\":true"+
 			"}]}]},{\"text\":\"Languages\",\"state\":\"closed\",\"children\":[{"+
-			"\"text\":\"Java\"},{\"text\":\"C#\",\"url\":\"page/userRoleResource/userRoleResourceList.html\"}]}]" ;
+			"\"text\":\"Java\"},{\"text\":\"C#\",\"url\":\"/ways/page/userRoleResource/userRoleResourceList.html\"}]}]" ;
 		Map map = new HashMap() ;
 		//JsonObject jsonObject = new JsonObject() ;
 		JSONObject jsonObject = new JSONObject() ;

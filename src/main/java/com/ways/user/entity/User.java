@@ -110,15 +110,15 @@ public class User {
     public String getUserId() {
         return userId;
     }
-    public void setUserCode(String userCode) {
-        this.userCode = userCode;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
-    @Column(name="userc_ode")
+    @Column(name="user_code")
     public String getUserCode() {
         return userCode;
     }
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
     @Column(name="user_type")
     public String getUserType() {

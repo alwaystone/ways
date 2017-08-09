@@ -1,5 +1,5 @@
 $(function(){
-	$('#userRoleResourceGrid').datagrid({  
+	var userRoleResourceGridData = $('#userRoleResourceGrid').datagrid({  
 		iconCls:'icon-ok',  
 		pageSize:10,  
 		pageList:[10,15,20],  
@@ -7,7 +7,7 @@ $(function(){
 		striped:true,  
 		collapsible:true,  
 		toolbar:"#easyui_toolbar",  
-		url:'/ways/userController/getUserList', //搜索前,触发此action请求所有用户信息  
+		//url:'/ways/userController/getUserList', //搜索前,触发此action请求所有用户信息  
 		loadMsg:'数据加载中......',  
 		fitColumns:true,//允许表格自动缩放,以适应父容器  
 		sortOrder:'asc',  
@@ -23,4 +23,17 @@ $(function(){
 	    pagination : true,  
 	    rownumbers : true  
 	}); 
+	
+	function loadData(){
+		$.ajax({
+            type: "post",
+            url: "/ways/userController/getUserList",
+            data: {},
+            dataType: "json",
+            success: function(data){
+            	userRoleResourceGridData.data = data ;
+             }
+        });
+	}
+	loadData() ;
 })
