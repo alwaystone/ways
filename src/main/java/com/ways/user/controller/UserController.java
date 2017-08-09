@@ -38,12 +38,15 @@ public class UserController {
 	
 	@RequestMapping("/getUserList")
 	@ResponseBody
-	public List getUserList(ModelAndView model){
+	public Map getUserList(ModelAndView model){
 		Map param =new HashMap() ;
 		List list = userService.getUserList(param) ;
 		model.addObject("aaa", list) ;
 		//model.setViewName("userList");
-		return list ;
+		param.clear();
+		param.put("total", "10") ;
+		param.put("rows", list) ;
+		return param ;
 	}
 	
 	@RequestMapping("/getUserById")

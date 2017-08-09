@@ -1,8 +1,9 @@
 $(function(){
-	var userRoleResourceGridData = $('#userRoleResourceGrid').datagrid({  
+	$('#userRoleResourceGrid').datagrid({  
 		iconCls:'icon-ok',  
 		pageSize:10,  
-		pageList:[10,15,20],  
+		pageList:[10,15,20],
+		pagePosition: 'bottom',
 		nowrap:true,  
 		striped:true,  
 		collapsible:true,  
@@ -31,7 +32,7 @@ $(function(){
             data: {},
             dataType: "json",
             success: function(data){
-            	userRoleResourceGridData.data = data ;
+            	$('#userRoleResourceGridData').datagrid('loadData',data);  
              }
         });
 	}

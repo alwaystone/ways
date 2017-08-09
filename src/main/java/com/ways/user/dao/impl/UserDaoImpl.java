@@ -36,10 +36,10 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public List<User> getUserList(Map param) {
 		//List<User> list = this.getSession().createSQLQuery("select * from user where id = ?").addEntity(User.class).setParameter(0, "402895075d788dae015d788dd82a0000").list() ;
-		//List list = this.getSession().createQuery("from User").list() ;
+		List list = this.getSession().createQuery("from User").list() ;
 		
 		//this.getSession().
-		return null ;
+		return list ;
 		//return list;
 	}
 	@Override
