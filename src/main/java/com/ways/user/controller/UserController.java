@@ -24,12 +24,11 @@ public class UserController {
 	@Autowired
 	public UserService userService ;
 	
-	@RequestMapping("/test") 
+	@RequestMapping("/insertUser") 
 	public String test(ModelMap map){
 		User user = new User() ;
 		user.setName("admin");
-		user.setSex(1);
-		user.setAge(1);
+		user.setSex("1");
 		user.setCreateId("0");
 		user.setCreateTime(new Date()) ; 
 		user.setCreateName("admin");
