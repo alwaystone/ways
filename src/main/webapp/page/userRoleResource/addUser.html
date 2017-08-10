@@ -32,16 +32,25 @@
 	</div>
 	<script type="text/javascript">
 		function saveUser(){
-			$('#addUserForm').form('submit',{
-				url: getRootPath()+"/userController/saveUser",
-				onSubmit: function(){
-					return $(this).form('validate');
-				},
-				success: function(result){
-					alert("保存成功！") ;
-					$('#addUserDialog').dialog('close');		// close the dialog
-					//$('#userRoleResourceGrid').datagrid('reload');	// reload the user data
-					$('#userRoleResourceGrid').datagrid('reload',getRootPath()+"/userController/getUserList");
+			$.messager.confirm('确认','确认保存这条信息吗?',function(r){
+				if (r){
+					$('#addUserForm').form('submit',{
+						url: getRootPath()+"/userController/saveUser",
+						onSubmit: function(){
+							return $(this).form('validate');
+						},
+						success: function(result){
+							$.messager.show({
+								title:'My Title',
+								msg:'保存成功！',
+								timeout:5000,
+								showType:'slide'
+							});
+							$('#addUserDialog').dialog('close');		// close the dialog
+							//$('#userRoleResourceGrid').datagrid('reload');	// reload the user data
+							$('#userRoleResourceGrid').datagrid('reload',getRootPath()+"/userController/getUserList");
+						}
+					});
 				}
 			});
 		}
