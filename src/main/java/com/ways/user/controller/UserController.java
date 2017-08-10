@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,6 +36,22 @@ public class UserController {
 		user.setCreateName("admin");
 		userService.insertUser(user);
 		return "test" ;
+	}
+	
+	@RequestMapping("/saveUser") 
+	@ResponseBody
+	public String saveUser(@RequestParam Map map){
+		Set keys = map.keySet() ;
+		User user = new User() ;
+		user.setName(map.get("name")!=null?map.get("name").toString():null);
+		user.setUserCode(map.get("code")!=null?map.get("code").toString():null);
+		user.setPhone(map.get("phone")!=null?map.get("phone").toString():null);
+		user.setAddress(map.get("address")!=null?map.get("address").toString():null);
+		user.setCreateId("0");
+		user.setCreateTime(new Date()) ; 
+		user.setCreateName("admin");
+		userService.insertUser(user);
+		return "success" ;
 	}
 	
 	@RequestMapping("/getUserList")

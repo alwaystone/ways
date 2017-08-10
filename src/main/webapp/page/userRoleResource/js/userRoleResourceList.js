@@ -8,7 +8,7 @@ $(function(){
 		striped:true,  
 		collapsible:true,  
 		toolbar:"#easyui_toolbar",  
-		//url: "/ways/userController/getUserList",
+		//url: getRootPath()+"/userController/getUserList",
 		//url:'/ways/userController/getUserList', //搜索前,触发此action请求所有用户信息  
 		loadMsg:'数据加载中......',  
 		fitColumns:true,//允许表格自动缩放,以适应父容器  
@@ -34,11 +34,13 @@ $(function(){
 	    rownumbers : true  
 	}); 
 	
+	loadData()
+}) 
 	function loadData(){
 		///$('#userRoleResourceGrid').datagrid('/ways/userController/getUserList');
 		$.ajax({
             type: "post",
-            url: "/ways/userController/getUserList",
+            url: getRootPath()+"/userController/getUserList",
             data: {},
             dataType: "json",
             success: function(data){
@@ -46,5 +48,15 @@ $(function(){
              }
         });
 	}
-	loadData() ;
-})
+	function newUser(){
+		$('#addUserDialog').dialog({
+			title: 'My Dialog',
+		    width: 400,
+		    height: 300,
+		    closed: false,
+		    cache: false,
+		    href: getRootPath()+'/page/userRoleResource/addUser.html',
+		    modal: true
+		});
+	}
+

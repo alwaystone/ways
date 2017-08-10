@@ -2,7 +2,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Basic DataGrid - jQuery EasyUI Demo</title>
 	<link rel="stylesheet" type="text/css" href="../../js/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="../../js/themes/icon.css">
 	<script type="text/javascript" src="../../js/jquery.min.js"></script>
@@ -30,7 +29,7 @@
            </div>
           
            <div style="float: right;">  
-               <a href="#" class="easyui-linkbutton" plain="true" icon="icon-add">新增</a>  
+               <a href="#" class="easyui-linkbutton" plain="true" icon="icon-add" onclick="newUser()">新增</a>  
            </div>  
            <div style="float: right;">  
                <a href="#" class="easyui-linkbutton" plain="true" icon="icon-search">查询</a>  
@@ -38,7 +37,10 @@
        </div>  
        <table id="userRoleResourceGrid" class="easyui-datagrid" fit="true"></table>  
    <!-- </div> -->
-	
+	<div id="addUserDialog" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
+		closed="true" buttons="#dlg-buttons"></div>
+		
+	<script type="text/javascript" src="../../home/base.js"></script>	
  	<script type="text/javascript" src="js/userRoleResourceList.js"></script>
 </body>
 </html>

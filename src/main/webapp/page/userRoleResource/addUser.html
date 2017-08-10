@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div >
+		<div class="ftitle">用户基本信息录入</div>
+		<form id="addUserForm" class="easyui-form" method="post">
+			<div class="fitem">
+				<label for="name">姓名:</label>
+				<input name="name" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label for="code">编号:</label>
+				<input name="code" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label for="phone">电话:</label>
+				<input name="phone">
+			</div>
+			<div class="fitem">
+				<label for="address">地址:</label>
+				<input name="address" class="easyui-validatebox">
+			</div>
+		</form>
+	</div>
+	<div style="bottom:5px;" align="right">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#addUserDialog').dialog('close')">Cancel</a>
+	</div>
+	<script type="text/javascript">
+		function saveUser(){
+			$('#addUserForm').form('submit',{
+				url: getRootPath()+"/userController/saveUser",
+				onSubmit: function(){
+					return $(this).form('validate');
+				},
+				success: function(result){
+					alert("保存成功！") ;
+					$('#addUserDialog').dialog('close');		// close the dialog
+					//$('#userRoleResourceGrid').datagrid('reload');	// reload the user data
+					$('#userRoleResourceGrid').datagrid('reload',getRootPath()+"/userController/getUserList");
+				}
+			});
+		}
+	</script>
+</body>
+</html>
