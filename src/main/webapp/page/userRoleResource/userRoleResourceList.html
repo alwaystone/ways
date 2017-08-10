@@ -8,37 +8,36 @@
 	<script type="text/javascript" src="../../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../../js/jquery.easyui.min.js"></script>
 </head>
-<body>
+<body style="margin:5px 0 0 5px">
 	<!-- 引入基础页面 -->
 	<!-- <h2>Basic DataGrid</h2>
 	<p>The DataGrid is created from markup, no JavaScript code needed.</p> --> 
 	<!-- <div>
 		<table id="userRoleResourceGrid"></table>
 	</div> -->
-	<div class="easyui-layout" fit="true">  
+	<!-- <div class="easyui-layout" fit="true">  --> 
        <div  id="easyui_toolbar" region="north" border="false"  
-           style="border-bottom: 1px solid #ddd; height: 32px; padding: 2px 5px; background: #fafafa;">  
-           <div style="float: left;">  
+           style="border-bottom: 1px solid #ddd; height: 35px; padding: 8px 5px; background: #fafafa;">  
+           <div style="float: left;display: inline-block;margin-right: 15px">  
+           	   <label for="userName">用户名</label>
+               <input id="userName" class="easyui-searchbox"  
+                   prompt="请输入用户名" style="width: 130px; vertical-align: middle;"></input>   
+           </div>
+           <div style="float: left;display: inline-block;">  
+           	   <label for="userCode">用户编号</label>
+               <input id="userCode" class="easyui-searchbox"  
+                   prompt="用户编号" style="width: 130px; vertical-align: middle;"></input>   
+           </div>
+          
+           <div style="float: right;">  
                <a href="#" class="easyui-linkbutton" plain="true" icon="icon-add">新增</a>  
            </div>  
-           <div class="datagrid-btn-separator"></div>  
-           <div style="float: left;">  
-               <a href="#" class="easyui-linkbutton" plain="true" icon="icon-save">编辑</a>  
-           </div>  
-           <div class="datagrid-btn-separator"></div>  
-           <div style="float: left;">  
-               <a href="#" class="easyui-linkbutton" plain="true"  
-                   icon="icon-remove">删除</a>  
-           </div>  
-           <div id="tb" style="float: right;">  
-               <input id="ss" class="easyui-searchbox"  
-                   prompt="请输入用户名" style="width: 130px; vertical-align: middle;"></input>   
-           </div>  
+           <div style="float: right;">  
+               <a href="#" class="easyui-linkbutton" plain="true" icon="icon-search">查询</a>  
+           </div> 
        </div>  
-       <div region="center" border="false">  
-           <table id="userRoleResourceGrid"></table>  
-       </div>  
-   </div>
+       <table id="userRoleResourceGrid" class="easyui-datagrid" fit="true"></table>  
+   <!-- </div> -->
 	
  	<script type="text/javascript" src="js/userRoleResourceList.js"></script>
 </body>
