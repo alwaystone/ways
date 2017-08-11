@@ -1,1 +1,4 @@
 # ways
+jdk 1.8
+mysqlÊý¾Ý¿â
+neo eclipse 
